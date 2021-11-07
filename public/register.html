@@ -1,0 +1,28 @@
+<html lang="en">
+    <head>
+        <title>Register</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="icon" type="images/png" href="images/icon.svg" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/javascripts/register.js"></script>
+      </head>
+
+      <body>
+          <header>
+            <img src="images/icon.svg" alt="icon">
+          </header>
+        <main>
+          <form>
+            <p> Email: <input type="email" id="email" name="email"  ></p>
+            <p> Password: <input type="password" id="pass" name="pass" ></p>
+            <p> Nome: <input type="text" id="nome" name="nome" ></p>
+            <p> Morada: <input type="text" id="morada" name="morada" ></p>
+            <p> Data de Nascimento: <input type="date" name="dtnasc" id="dtnasc" ></p>
+            <p> Género: <input type="text" id="genero" name="genero" placeholder="M/F"></p>
+            <p> Telemóvel: <input type="tel" id="tlm" name="tlm" min="9" max="9"></p>
+            <p> <button type="submit" onclick="register()"> register </button> </p>
+            <p id="msg"></p>
+          </form>
+        </main>
+	</body>
+</html>
