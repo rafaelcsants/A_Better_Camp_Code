@@ -3,10 +3,10 @@ var util = require("util");
 
 var pool = mysql.createPool({
   connectionLimit: 10,
-  host: "localhost",
-  user: "root",
-  password: "rafael123",
-  database: "projeto",
+  host: "remotemysql.com:3306",
+  user: "BKIeZjBNy6",
+  password: "esaI175dBl",
+  database: "BKIeZjBNy6",
 });
 
 pool.query = util.promisify(pool.query);
