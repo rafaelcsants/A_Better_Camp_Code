@@ -39,6 +39,11 @@ a {
   color: rgb(239, 233, 228);
 }
 
+#esquerda section{
+  text-decoration: underline;
+
+}
+
 #esquerda {
   flex-direction: column;
   grid-area: esquerda;

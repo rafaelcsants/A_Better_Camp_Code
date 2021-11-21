@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Pedidos Monitor</title>
+        <title>Admin Profile</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
         <link rel="stylesheet" href="/stylesheets/students.css">
         <link rel="icon" type="images/png" href="images/icon.svg" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="/javascripts/pedidosMonitor.js"></script>
+        <script src="/javascripts/gerirMonitor.js"></script>
       </head>
 <body>
     <header>
@@ -14,7 +14,13 @@
           <a href="index.html"><img src="images\logo.svg" alt="logo1"> </a>
         </div>
       </header>
-    <main id="pedidos">
-    </main>
+    <section>
+      <select name="semana" id="semana"></select>
+      <select name="monitor" id="monitor"></select>
+      <select name="campo" id="campo"></select>
+      <p> <button type="submit" onclick="submeter()"> Submeter </button> </p>
+      <p id="msg"></p>
+    </section>
+
 </body>
 </html>
