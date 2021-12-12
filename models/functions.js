@@ -71,18 +71,6 @@ module.exports.pedidosMonitor = async function () {
 
 module.exports.gerirMonitor = async function (semana, monitor, campo) {
   try {
-    let sql = "SELECT pessoa.pessoa_nome, pessoa.pessoa_id from pessoa INNER JOIN monitor_insc ON pessoa.pessoa_id = monitor_insc.pessoa_id AND monitor_insc.cv = 0";
-    let result = await pool.query(sql);
-    let pedidos = result;
-    return { status: 200, result: pedidos };
-  } catch (err) {
-    console.log(err);
-    return { status: 500, result: err };
-  }
-};
-
-module.exports.gerirMonitor = async function (semana, monitor, campo) {
-  try {
     let sql = `INSERT INTO campo_semana (semana_id, monitor_id, campo_id) values (?,?,?)`;
     let result = await pool.query(sql, [semana, monitor, campo]);
     return { status: 200, result: { msg: "Pedido efectuado com sucesso" } };
