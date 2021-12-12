@@ -94,10 +94,10 @@ window.onload = async function() {
             `</option>`
         }
             
+            document.getElementById("semana").innerHTML= html;
+
             html1 += `<section>
             <p><input type="button" onclick="reservarCampo()" value="Inscrever"></p></section>`;
-
-            document.getElementById("semana").innerHTML= `<select name="semana" id="semana">` + html + `</select>`;
     }
         else{
             html1 += `<section> <p><input type="button" onclick="toLogin()" value="Inscrever"></p></section>`;
@@ -128,7 +128,6 @@ window.onload = async function() {
 async function reservarCampo(campoId, PessoaId){
     try {
         semana = document.getElementById("semana").value;
-        console.log(semana);
         PessoaId = sessionStorage.getItem("PessoaId");
         campoId = sessionStorage.getItem("campoId");
         let obj = {campoId, PessoaId, semana}
@@ -154,6 +153,3 @@ async function reservarCampo(campoId, PessoaId){
     document.getElementById("msg").innerText = err.responseJSON.msg;
   }
 };
-
-
-

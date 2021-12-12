@@ -16,7 +16,7 @@ async function login() {
       window.location = "adminProfile.html";
 
     }
-    else if(pessoa.admin_id == null){
+    else {
       sessionStorage.setItem("PessoaId", JSON.stringify(pessoa.pessoa_id));
       window.location = "pessoaProfile.html";
     }
@@ -24,4 +24,3 @@ async function login() {
     document.getElementById("msg").innerText = err.responseJSON.msg;
   }
 }
-
