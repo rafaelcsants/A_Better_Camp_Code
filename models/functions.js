@@ -57,21 +57,12 @@ module.exports.aceitarMonitor = async function (monitorId) {
   }
 };
 
-<<<<<<< HEAD
-module.exports.aceitarMonitor = async function (monitorId) {
-  try {
-    let sql = "UPDATE monitor_insc SET cv = 1 WHERE pessoa_id = ?";
-    let result = await pool.query(sql, [monitorId]);
-    let pedido = result;
-    return { status: 200, result: pedido };
-=======
 module.exports.pedidosMonitor = async function () {
   try {
     let sql = "SELECT pessoa.pessoa_nome, pessoa.pessoa_id from pessoa INNER JOIN monitor_insc ON pessoa.pessoa_id = monitor_insc.pessoa_id AND monitor_insc.cv = 0";
     let result = await pool.query(sql);
     let pedidos = result;
     return { status: 200, result: pedidos };
->>>>>>> main
   } catch (err) {
     console.log(err);
     return { status: 500, result: err };
@@ -80,7 +71,6 @@ module.exports.pedidosMonitor = async function () {
 
 module.exports.gerirMonitor = async function (semana, monitor, campo) {
   try {
-<<<<<<< HEAD
     let sql = "SELECT pessoa.pessoa_nome, pessoa.pessoa_id from pessoa INNER JOIN monitor_insc ON pessoa.pessoa_id = monitor_insc.pessoa_id AND monitor_insc.cv = 0";
     let result = await pool.query(sql);
     let pedidos = result;
@@ -93,8 +83,6 @@ module.exports.gerirMonitor = async function (semana, monitor, campo) {
 
 module.exports.gerirMonitor = async function (semana, monitor, campo) {
   try {
-=======
->>>>>>> main
     let sql = `INSERT INTO campo_semana (semana_id, monitor_id, campo_id) values (?,?,?)`;
     let result = await pool.query(sql, [semana, monitor, campo]);
     return { status: 200, result: { msg: "Pedido efectuado com sucesso" } };
@@ -115,17 +103,6 @@ module.exports.pedirMonitor = async function (PessoaId) {
   }
 };
 
-<<<<<<< HEAD
-module.exports.reservaPessoa = async function (campoId , PessoaId) {
-  try {
-    let sql = "SELECT * from inscricao WHERE campo_id = ? and pessoa_id = ?"
-    let result = await pool.query(sql, [campoId , PessoaId]);
-    if (result.length>0)
-    return { status: 401, result: { msg: "Já está inscrito" } };
-    else {
-    let sql = "INSERT INTO inscricao (campo_id, pessoa_id) values (?,?)";
-    let result = await pool.query(sql, [campoId , PessoaId]);
-=======
 module.exports.reservaPessoa = async function (campoId , PessoaId, semana) {
   try {
     let sql = "SELECT * from inscricao WHERE campo_id = ? and pessoa_id = ? and semana_id = ?"
@@ -135,7 +112,6 @@ module.exports.reservaPessoa = async function (campoId , PessoaId, semana) {
     else {
     let sql = "INSERT INTO inscricao (campo_id, pessoa_id, semana_id) values (?,?,?)";
     let result = await pool.query(sql, [campoId , PessoaId, semana]);
->>>>>>> main
     return { status: 200, result: { msg: "Inscrição efectuada com sucesso" } };
     } 
   } catch (err) {
