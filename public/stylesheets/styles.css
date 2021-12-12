@@ -1,0 +1,69 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    
+
+    overflow-y: hidden;
+}
+
+@media only screen and (max-device-width: 1366px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
+.bg-success {
+    background-color: rgb(12,102,48)!important;
+}
+
+/* INDEX:HTML */
+
+.wave {
+    position: relative;
+    height: 100%;
+}
+
+ .wave .text {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    color: rgb(239, 233, 228);
+}
+
+.wave .text a {
+    color: rgb(12,102,48);
+    text-decoration: none;
+}
+ .wave svg {
+    position: absolute;
+    bottom: 0;
+}
+
+#map {
+    position: absolute;
+    top: 79px;
+    bottom: 0;
+    height: auto;
+    width: 50%;
+    right: 0vh;
+  }
+
+  body > main > section {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(12, 102, 48);
+    color: rgb(239, 233, 228);
+    width: fit-content;
+
+  }
+  
+  
