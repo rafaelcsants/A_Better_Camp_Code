@@ -1,4 +1,5 @@
 var campoId;
+var PessoaId;
 window.onload = async function() {
     try {
         campoId = sessionStorage.getItem("campoId");
@@ -8,7 +9,11 @@ window.onload = async function() {
             method: "get",
             dataType: "json"
         });
-        document.getElementById("campo").innerHTML= `${campo.campo_nome}`;
+        let html1 = `<section>
+        <h2>${campo.campo_nome}</h2>
+        <p><input type="button" onclick="reservarCampo()" value="Inscrever"></p></section>`;
+        
+        document.getElementById("campo").innerHTML= html1;
         
         let ativs = await $.ajax({
             url: `/api/campos/${campoId}/ativ`,
@@ -27,4 +32,23 @@ window.onload = async function() {
         console.log(err);
     }
 }
+
+async function reservarCampo(campoId, PessoaId){
+    try {
+        PessoaId = sessionStorage.getItem("PessoaId");
+        campoId = sessionStorage.getItem("campoId");
+        let obj = {campoId, PessoaId}
+        let reservas = await $.ajax({
+          url: `/api/campos/${campoId}/reservas`,
+          method: "post",
+          dataType: "json",
+          data: JSON.stringify(obj),
+          contentType: "application/json",
+    });
+      } catch (err) {
+        document.getElementById("msg").innerText = err.responseJSON.msg;
+      }
+    }
+
+
 

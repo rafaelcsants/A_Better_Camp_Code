@@ -57,10 +57,10 @@ module.exports.loginAdmin = async function (email, pass) {
   }
 };
 
-module.exports.aceitarMonitor = async function () {
+module.exports.aceitarMonitor = async function (monitorId) {
   try {
     let sql = "UPDATE monitor_insc SET cv = 1 WHERE pessoa_id = ?";
-    let result = await pool.query(sql);
+    let result = await pool.query(sql, [monitorId]);
     let pedido = result;
     return { status: 200, result: pedido };
   } catch (err) {
@@ -71,10 +71,21 @@ module.exports.aceitarMonitor = async function () {
 
 module.exports.pedidosMonitor = async function () {
   try {
-    let sql = "SELECT * from monitor_insc where cv = 0";
+    let sql = "SELECT pessoa.pessoa_nome, pessoa.pessoa_id from pessoa INNER JOIN monitor_insc ON pessoa.pessoa_id = monitor_insc.pessoa_id AND monitor_insc.cv = 0";
     let result = await pool.query(sql);
-    let pedido = result;
-    return { status: 200, result: pedido };
+    let pedidos = result;
+    return { status: 200, result: pedidos };
+  } catch (err) {
+    console.log(err);
+    return { status: 500, result: err };
+  }
+};
+
+module.exports.gerirMonitor = async function (semana, monitor, campo) {
+  try {
+    let sql = `INSERT INTO campo_semana (semana_id, monitor_id, campo_id) values (?,?,?)`;
+    let result = await pool.query(sql, [semana, monitor, campo]);
+    return { status: 200, result: { msg: "Pedido efectuado com sucesso" } };
   } catch (err) {
     console.log(err);
     return { status: 500, result: err };
@@ -86,6 +97,23 @@ module.exports.pedirMonitor = async function (PessoaId) {
     let sql = "INSERT INTO monitor_insc (pessoa_id, cv) values (?,0)";
     let result = await pool.query(sql, [PessoaId]);
     return { status: 200, result: { msg: "Pedido efectuado com sucesso" } };
+  } catch (err) {
+    console.log(err);
+    return { status: 500, result: err };
+  }
+};
+
+module.exports.reservaPessoa = async function (campoId , PessoaId) {
+  try {
+    let sql = "SELECT * from inscricao WHERE campo_id = ? and pessoa_id = ?"
+    let result = await pool.query(sql, [campoId , PessoaId]);
+    if (result.length>0)
+    return { status: 401, result: { msg: "Já está inscrito" } };
+    else {
+    let sql = "INSERT INTO inscricao (campo_id, pessoa_id) values (?,?)";
+    let result = await pool.query(sql, [campoId , PessoaId]);
+    return { status: 200, result: { msg: "Inscrição efectuada com sucesso" } };
+    } 
   } catch (err) {
     console.log(err);
     return { status: 500, result: err };
@@ -117,6 +145,30 @@ module.exports.GetAdminProfileById = async function(AdminId) {
       return {status:500, result: err};
   }
 };  
+
+module.exports.getAllSemanas = async function () {
+  try {
+    let sql = "Select * from semana";
+    let result = await pool.query(sql);
+    let semana = result;
+    return { status: 200, result: semana };
+  } catch (err) {
+    console.log(err);
+    return { status: 500, result: err };
+  }
+};
+
+module.exports.getAllMonitores = async function () {
+  try {
+    let sql = "SELECT pessoa.pessoa_nome, monitor_insc.monitor_id from pessoa INNER JOIN monitor_insc ON pessoa.pessoa_id = monitor_insc.pessoa_id AND monitor_insc.cv = 1;";
+    let result = await pool.query(sql);
+    let monitor = result;
+    return { status: 200, result: monitor };
+  } catch (err) {
+    console.log(err);
+    return { status: 500, result: err };
+  }
+};
 
 module.exports.getAllAdmins = async function () {
   try {

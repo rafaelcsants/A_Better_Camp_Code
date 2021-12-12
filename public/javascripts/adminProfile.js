@@ -6,7 +6,7 @@ window.onload = async function() {
             method: "get",
             dataType: "json"
         })
-        let html = `<section>
+        let html = `<section>   
         <h3>${pessoa.pessoa_nome}</h3>
     </section>`;
         document.getElementById("perfil").innerHTML = html;
@@ -17,4 +17,8 @@ window.onload = async function() {
 
 function toPedidosMonitor() {
     window.location = "pedidosMonitor.html"
+}
+
+function toGerirMonitor() {
+    window.location = "gerirMonitor.html"
 }

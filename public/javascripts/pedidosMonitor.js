@@ -1,27 +1,27 @@
 window.onload = async function () {
 try {
+    let AdminId = sessionStorage.getItem("AdminId");
     let pedidos = await $.ajax({
-      url: "/api/admin/pedidosMonitor",
+      url: `/api/admin/${AdminId}/pedidosMonitor`,
       method: "get",
       dataType: "json",
     });
     let html = "";
-    for (let monitor_insc  of pedidos) {
+    for (let pessoa  of pedidos) {
       html += `<section>
-            <h2>${monitor_insc.pessoa_id}</h2>
-            <p><input type="button" onclick="aceitarMonitor(  )" value="Aceitar o monitor"></p>
+            <h2>${pessoa.pessoa_nome}</h2>
+            <p><input type="button" onclick="aceitarMonitor(${pessoa.pessoa_id})" value="Aceitar o monitor"></p>
         </section>`;
     }
+    document.getElementById("pedidos").innerHTML = html;
   } catch (err) {
-    console.log('hi');
-    document.getElementById("msg").innerText = err.responseJSON.msg;
   }
 }
 
-async function aceitarMonitor(){
-    sessionStorage.setItem("monitorId", monitor_insc.pessoa_id);
+async function aceitarMonitor(pessoa_id){
+    sessionStorage.setItem("monitorId", pessoa_id);
     try {
-        let obj = {moniotrId}
+        let obj = {pessoa_id}
         let pessoa = await $.ajax({
           url: "/api/admin/aceitarMonitor",
           method: "put",
@@ -29,6 +29,7 @@ async function aceitarMonitor(){
           data: JSON.stringify(obj),
           contentType: "application/json",
         });
+        location.reload(true);
       } catch (err) {
         document.getElementById("msg").innerText = err.responseJSON.msg;
       }
