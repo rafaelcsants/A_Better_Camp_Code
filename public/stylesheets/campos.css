@@ -6,6 +6,11 @@
     background-color: rgb(12,102,48)!important;
 }
 
-body{
-  background-color: #EFE9E4;
-}
+.list-group-item{
+    background-color: #EFE9E4;
+  }
+
+  body{
+    background-color: #EFE9E4;
+  }
+  
