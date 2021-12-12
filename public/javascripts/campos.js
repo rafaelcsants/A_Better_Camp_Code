@@ -73,11 +73,11 @@ window.onload = async function () {
       
           document.getElementById("navbarNav").innerHTML = html10;
 
-    let html = "";
+    let html = "<ul class='list-group'>";
     for (let campo of campos) {
-      html += `<section onclick="toCampo(${campo.campo_id})">
-            <h3>${campo.campo_nome}</h3>
-        </section>`;
+      html += `<li class="list-group-item"><h5>${campo.campo_nome}</h5><button onclick="toCampo(${campo.campo_id})" class="btn btn-success">
+            Visitar
+        </button></li>`;
     }
     document.getElementById("campos").innerHTML = html;
   } catch (err) {

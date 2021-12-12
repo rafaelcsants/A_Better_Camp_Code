@@ -1,0 +1,51 @@
+.contactos:hover {
+    border: 2px solid rgb(10, 63, 11);
+    cursor: pointer;
+}
+
+.contactos {
+    padding: 15px;
+    border-radius: 5px;
+    
+}
+
+#centros {
+    overflow-y: scroll;
+    max-height: 700px;
+    padding: 5px;
+}
+
+#map {
+    position: absolute;
+    top: 79px;
+    bottom: 0;
+    height: auto;
+    width: 50%;
+    right: 0vh;
+  }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #0a5c0f #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #0a5c0f;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+  }
+
+  .bg-success {
+    background-color: rgb(12,102,48)!important;
+}

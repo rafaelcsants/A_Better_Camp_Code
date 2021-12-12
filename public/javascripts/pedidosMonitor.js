@@ -6,13 +6,14 @@ try {
       method: "get",
       dataType: "json",
     });
-    let html = "";
+    let html = "<ul class='list-group my-3'>";
     for (let pessoa  of pedidos) {
-      html += `<section>
+      html += `<li class="list-group-item d-flex justify-content-between align-items-center px-5">
             <h2>${pessoa.pessoa_nome}</h2>
-            <p><input type="button" onclick="aceitarMonitor(${pessoa.pessoa_id})" value="Aceitar o monitor"></p>
-        </section>`;
+            <p><input type="button" onclick="aceitarMonitor(${pessoa.pessoa_id})" value="Aceitar o monitor" class="btn btn-success"></p>
+        </li>`;
     }
+    html += "</ul>";
     document.getElementById("pedidos").innerHTML = html;
   } catch (err) {
   }

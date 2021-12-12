@@ -63,17 +63,14 @@ window.onload = async function () {
     </ul>`
 }
 
-    let html1 = `<h1>VENHA VISITAR-NOS!</h1>
-    Melhore a sua saúde física e mental.
-    <a href="/register.html">Inscreva-se aqui!</a>`
+
 
     document.getElementById("navbarNav").innerHTML = html;
-    document.getElementById("home_text").innerHTML = html1;
 }
 
 async function logout (){
     sessionStorage.removeItem("PessoaId");
     sessionStorage.removeItem("AdminId");
     sessionStorage.removeItem("monitorId");
-    location.reload(true);
+    window.location = "index.html";
 }

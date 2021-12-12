@@ -1,0 +1,7 @@
+.list-group-item:hover {
+    color: rgb(12,102,48);
+    cursor: pointer;
+}
+.bg-success {
+    background-color: rgb(12,102,48)!important;
+}

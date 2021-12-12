@@ -9,11 +9,11 @@ window.onload = async function () {
   let campos = await GetCampos();
 
   L.mapquest.key = "8MkD4JpHn8zPE0rGBGyuloII1ec4Hnt0";
-  let html = ""
+  let html = "<div class='my-4'>"
   for (let campo of campos) {
-    html += `<h1>${campo.campo_nome}</h1>
-              <h4>${campo.campo_disc}</h4>
-    </section>`;
+    html += `<h2>${campo.campo_nome}</h2>
+              <h4 class='fw-light'>${campo.campo_disc}</h4>
+    </div>`;
   }  
 
     document.getElementById("campos").innerHTML = html;

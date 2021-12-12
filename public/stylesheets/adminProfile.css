@@ -1,0 +1,7 @@
+body {
+    overflow-y: hidden;
+}
+
+.bg-success {
+    background-color: rgb(12,102,48)!important;
+}

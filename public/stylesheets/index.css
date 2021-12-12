@@ -1,3 +1,51 @@
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'PT Sans Caption', sans-serif;
+}
 body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
     background-image: url("/images/tim-swaan-eOpewngf68w-unsplash.jpg");
+
+}
+
+.bg-success {
+    background-color: rgb(12,102,48)!important;
+}
+
+/* INDEX:HTML */
+
+.wave {
+    position: relative;
+   height:100%;
+}
+
+ .wave .text {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    color: rgb(239, 233, 228);
+}
+
+.wave .text a {
+    color: rgb(12,102,48);
+    text-decoration: none;
+}
+ .wave svg {
+    position: absolute;
+    bottom: 0;
+}
+
+a {
+    color: white
+}
+
+a:hover {
+    color: rgb(144, 235, 180)
 }

@@ -2,7 +2,7 @@ async function logout (){
     sessionStorage.removeItem("PessoaId");
     sessionStorage.removeItem("AdminId");
     sessionStorage.removeItem("monitorId");
-    location.reload(true);
+    window.location = "index.html";
 }
 
 export {logout};

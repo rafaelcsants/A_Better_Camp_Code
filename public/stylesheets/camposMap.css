@@ -1,0 +1,12 @@
+#map {
+    position: absolute;
+    top: 79px;
+    bottom: 0;
+    height: 100%;
+    width: 50%;
+    right: 0vh;
+  }
+
+  .bg-success {
+    background-color: rgb(12,102,48)!important;
+}

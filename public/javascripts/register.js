@@ -22,7 +22,8 @@ async function register() {
       contentType: "application/json",
     });
     sessionStorage.setItem("PessoaId", pessoa.pessoa_id);
-    window.location = "pessoaProfile.html";
+    alert("Já pode efetuar o login");
+    window.location = "login.html";
   } catch (err) {
     document.getElementById("msg").innerText = err.message;
   }

@@ -1,77 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Profile | BetterCamp</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link href="./stylesheets/adminProfile.css" rel="stylesheet" />
+        <link rel="icon" type="images/png" href="images/icon.svg" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/javascripts/adminProfile.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-success navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img
+                        src="/images/logo.svg"
+                        alt=""
+                        width="120"
+                        height="24"
+                        class="img-fluid"
+                    />
+                </a>
+                <button
+                    class="navbar-toggler text-white"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon text-white"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav"></div>
+            </div>
+        </nav>
+        <div
+            class="
+                d-flex
+                flex-column
+                min-vh-100
+                justify-content-center
+                align-items-center
+            "
+        >
+            <main id="perfil"></main>
+
+            <section>
+                <main>
+                    <p></p>
+                    <p></p>
+                </main>
+            </section>
+        </div>
+        <footer class="footer bg-success">
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="text-center p-3 text-white">
+                            Contact us by email
+                            <a href="mailto:admin@ensino.pt">admin@ensino.pt</a>
+                            or telephone
+                            <a href="tell:2112312312">2112312312</a>.
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center p-3 text-white">
+                            © 2021 Copyright:
+                            <a class="text-white" href="/index.html"
+                                >BetterCamp.pt</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"
-    />
-    <link href="/stylesheets/styles.css" rel="stylesheet" />
-    <link rel="icon" type="images/png" href="images/icon.svg" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/javascripts/adminProfile.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap"
-        rel="stylesheet"
-    />
-</head>
-<body>
-  <nav class="navbar navbar-light bg-success navbar-expand-lg">
-      <div class="container">
-          <a class="navbar-brand" href="/">
-              <img
-                  src="/images/logo.svg"
-                  alt=""
-                  width="120"
-                  height="24"
-                  class="img-fluid"
-              />
-          </a>
-          <button
-              class="navbar-toggler text-white"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-          >
-              <span class="navbar-toggler-icon text-white"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-          </div>
-      </div>
-    </nav> 
-    <main id="perfil">
-    </main>
-    <section>
-        <main>
-            <p><input type="button" onclick="toPedidosMonitor()" value="Ver pedidos de monitor"></p>
-            <p><input type="button" onclick="toGerirMonitor()" value="Gerir monitores"></p>
-            <p id="msg"></p>
-        </main>
-    </section>
-</body>
+    ></script>
 
-<script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-crossorigin="anonymous"
-></script>
-
-<!-- <footer id="Contacts">
+    <!-- <footer id="Contacts">
 <p>
   Contact us by email
   <a href="mailto:admin@ensino.pt">(admin@ensino.pt)</a> or telephone
   <a href="tell:2112312312">(2112312312)</a>
 </p>
 </footer> -->
-
 </html>
