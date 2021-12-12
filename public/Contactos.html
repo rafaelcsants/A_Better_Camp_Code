@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile</title>
+    <title>Contactos</title>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -14,8 +16,7 @@
     <link href="/stylesheets/styles.css" rel="stylesheet" />
     <link rel="icon" type="images/png" href="images/icon.svg" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/javascripts/pessoaProfile.js"></script>
-    <script src="/javascripts/nav.js"></script>
+    <script type="module" src="./javascripts/Contactos.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +24,7 @@
         rel="stylesheet"
     />
 </head>
+
 <body>
   <nav class="navbar navbar-light bg-success navbar-expand-lg">
       <div class="container">
@@ -50,16 +52,11 @@
           </div>
       </div>
     </nav> 
-    <section>
-      <main id="perfil">
-
-      </main>
-    </section>
-
+    <main id="centros">
+    </main>
     <section>
         <main>
-            <p><input type="button" onclick="pedirMonitor(  )" value="Pedir para ser monitor"></p>
-            <p id="msg"></p>
+          <div id="map"></div>
         </main>
     </section>
 </body>
@@ -69,13 +66,5 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.j
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 crossorigin="anonymous"
 ></script>
-
-<!-- <footer id="Contacts">
-<p>
-  Contact us by email
-  <a href="mailto:admin@ensino.pt">(admin@ensino.pt)</a> or telephone
-  <a href="tell:2112312312">(2112312312)</a>
-</p>
-</footer> -->
 
 </html>

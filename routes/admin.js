@@ -15,22 +15,24 @@ var mProd = require("../models/functions");
   });
 
   router.put("/aceitarMonitor", async function (req, res, next){
-  let monitorId = req.params.id;
+  let monitorId = req.body.pessoa_id;
   console.log("Monitor Profile updated with id "+monitorId);
   let result = await mProd.aceitarMonitor(monitorId);
   res.status(result.status).send(result.result);
   });
 
 
-  router.get("/pedidosMonitor", async function (req, res, next) {
+  router.get("/:id/pedidosMonitor", async function (req, res, next) {
     let result = await mProd.pedidosMonitor();
     res.status(result.status).send(result.result);
   });
 
-router.post('/login',async function(req, res, next) {
-    let email = req.body.email;
-    let password = req.body.pass;
-    let result = await mProd.loginAdmin(email,password);
+  router.post(`/:id/gerirMonitor`, async function (req, res, next) {
+    let semana = req.body.semana;
+    let monitor = req.body.monitor;
+    let campo = req.body.campo;
+    console.log("Monitor updated with id "+monitor);
+    let result = await mProd.gerirMonitor(semana, monitor, campo);
     res.status(result.status).send(result.result);
   });
 

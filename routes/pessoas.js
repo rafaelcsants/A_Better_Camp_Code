@@ -19,7 +19,7 @@ router.post('/login',async function(req, res, next) {
 router.post('/pedirMonitor',async function(req, res, next) {
   let PessoaId = req.body.PessoaId;
   console.log("Pedido enviado with id "+PessoaId);
-  let result = await mProd.PedirMonitor(PessoaId);
+  let result = await mProd.pedirMonitor(PessoaId);
   res.status(result.status).send(result.result);
 });
 

@@ -13,6 +13,15 @@ router.get("/", async function (req, res, next) {
     let result = await mProd.getCampoById(id);
     res.status(result.status).send(result.result);
   });
+
+  router.post('/:id/reservas', async function(req, res, next) {
+    let campoId = req.body.campoId;
+    let PessoaId = req.body.PessoaId
+    let semana = req.body.semana;
+    console.log("Reserva feita with id "+PessoaId);
+    let result = await mProd.reservaPessoa(campoId, PessoaId, semana);
+    res.status(result.status).send(result.result);
+  });
   
   router.get('/:id/ativ', async function(req, res, next) {
     let id = req.params.id;
