@@ -10,10 +10,7 @@ var camposRouter = require("./routes/campos");
 var adminRouter = require("./routes/admin");
 var semanaRouter = require("./routes/semana");
 var monitorRouter = require("./routes/monitor");
-<<<<<<< HEAD
-=======
 var centrosRouter = require("./routes/centros");
->>>>>>> main
 
 
 
@@ -32,10 +29,7 @@ app.use("/api/campos", camposRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/semana", semanaRouter);
 app.use("/api/monitor", monitorRouter);
-<<<<<<< HEAD
-=======
 app.use("/api/centros", centrosRouter);
->>>>>>> main
 
 
 module.exports = app;

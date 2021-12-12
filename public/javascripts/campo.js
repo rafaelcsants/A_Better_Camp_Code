@@ -1,12 +1,9 @@
 var campoId;
 var PessoaId;
-<<<<<<< HEAD
-=======
 var PessoaId = sessionStorage.getItem("PessoaId");
 var AdminId = sessionStorage.getItem("AdminId");
 var monitor = sessionStorage.getItem("monitorId");
 
->>>>>>> main
 window.onload = async function() {
     try {
         campoId = sessionStorage.getItem("campoId");
@@ -16,13 +13,6 @@ window.onload = async function() {
             method: "get",
             dataType: "json"
         });
-<<<<<<< HEAD
-        let html1 = `<section>
-        <h2>${campo.campo_nome}</h2>
-        <p><input type="button" onclick="reservarCampo()" value="Inscrever"></p></section>`;
-        
-        document.getElementById("campo").innerHTML= html1;
-=======
 
      let semanas = await $.ajax({
         url: "/api/semana",
@@ -116,7 +106,6 @@ window.onload = async function() {
         document.getElementById("campo").innerHTML= html1;
         document.getElementById("nome").innerHTML= html3;
 
->>>>>>> main
         
         let ativs = await $.ajax({
             url: `/api/campos/${campoId}/ativ`,
@@ -138,17 +127,11 @@ window.onload = async function() {
 
 async function reservarCampo(campoId, PessoaId){
     try {
-<<<<<<< HEAD
-        PessoaId = sessionStorage.getItem("PessoaId");
-        campoId = sessionStorage.getItem("campoId");
-        let obj = {campoId, PessoaId}
-=======
         semana = document.getElementById("semana").value;
         console.log(semana);
         PessoaId = sessionStorage.getItem("PessoaId");
         campoId = sessionStorage.getItem("campoId");
         let obj = {campoId, PessoaId, semana}
->>>>>>> main
         let reservas = await $.ajax({
           url: `/api/campos/${campoId}/reservas`,
           method: "post",
@@ -156,18 +139,13 @@ async function reservarCampo(campoId, PessoaId){
           data: JSON.stringify(obj),
           contentType: "application/json",
     });
-<<<<<<< HEAD
-=======
         alert("Reserva efetuada com sucesso");
 
->>>>>>> main
       } catch (err) {
         document.getElementById("msg").innerText = err.responseJSON.msg;
       }
     }
 
-<<<<<<< HEAD
-=======
     async function toLogin(){
     try{
         window.location = "login.html";
@@ -177,6 +155,5 @@ async function reservarCampo(campoId, PessoaId){
   }
 };
 
->>>>>>> main
 
 

@@ -33,16 +33,6 @@ var mProd = require("../models/functions");
     let campo = req.body.campo;
     console.log("Monitor updated with id "+monitor);
     let result = await mProd.gerirMonitor(semana, monitor, campo);
-<<<<<<< HEAD
-    res.status(result.status).send(result.result);
-  });
-
-router.post('/login',async function(req, res, next) {
-    let email = req.body.email;
-    let password = req.body.pass;
-    let result = await mProd.loginAdmin(email,password);
-=======
->>>>>>> main
     res.status(result.status).send(result.result);
   });
 
