@@ -17,8 +17,14 @@ router.get("/", async function (req, res, next) {
   router.post('/:id/reservas', async function(req, res, next) {
     let campoId = req.body.campoId;
     let PessoaId = req.body.PessoaId
+<<<<<<< HEAD
     console.log("Reserva feita with id "+PessoaId);
     let result = await mProd.reservaPessoa(campoId, PessoaId);
+=======
+    let semana = req.body.semana;
+    console.log("Reserva feita with id "+PessoaId);
+    let result = await mProd.reservaPessoa(campoId, PessoaId, semana);
+>>>>>>> main
     res.status(result.status).send(result.result);
   });
   

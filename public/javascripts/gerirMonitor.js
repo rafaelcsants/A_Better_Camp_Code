@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+var PessoaId = sessionStorage.getItem("PessoaId");
+var AdminId = sessionStorage.getItem("AdminId");
+var monitor = sessionStorage.getItem("monitorId");
+
+>>>>>>> main
 window.onload = async function () {
   try {
     let campos = await $.ajax({
@@ -18,6 +25,72 @@ window.onload = async function () {
       dataType: "json",
     });
 
+<<<<<<< HEAD
+=======
+    let html10 = `<ul class="navbar-nav ms-auto">
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/campos.html"
+            >CAMPOS</a
+        >
+    </li>
+    <ul class="navbar-nav ms-auto">
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/CamposMap.html"
+            >CAMPOS MAP</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/Contactos.html"
+            >CONTACTOS</a
+        >
+    </li>`
+    
+    if(PessoaId){
+        html10 += `
+        <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/pessoaProfile.html"
+            >PERFIL</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" onclick="logout()">LOGOUT
+    </li>`
+    }
+    else if (AdminId){
+        html10 += `
+        <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/adminProfile.html"
+            >PERFIL</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/gerirMonitor.html"
+            >GERIR MONITORES</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" onclick="logout()">LOGOUT
+    </li>`
+    }
+    else{
+        html10 += `
+        </li>
+        <li class="nav-item mx-3">
+            <a class="nav-link text-white" href="/login.html"
+                >LOGIN</a
+            >
+        </li>
+        <li class="nav-item mx-3">
+            <a class="nav-link text-white" href="/register.html"
+                >REGISTAR</a
+            >
+        </li>
+    </ul>`
+    }
+    
+      document.getElementById("navbarNav").innerHTML = html10;
+
+>>>>>>> main
     let html = "";
     let html1 = "";
     let html2 = "";
@@ -45,6 +118,16 @@ window.onload = async function () {
   }
 };
 
+<<<<<<< HEAD
+=======
+async function logout (){
+  sessionStorage.removeItem("PessoaId");
+  sessionStorage.removeItem("AdminId");
+  sessionStorage.removeItem("monitorId");
+  location.reload(true);
+}
+
+>>>>>>> main
 async function submeter(semana, monitor, campo) {
   try {
     let obj = {
@@ -66,3 +149,8 @@ async function submeter(semana, monitor, campo) {
     console.log(err);
   }
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main

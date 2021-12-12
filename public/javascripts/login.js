@@ -11,9 +11,21 @@ async function login() {
       data: JSON.stringify(obj),
       contentType: "application/json",
     });
-    sessionStorage.setItem("PessoaId", pessoa.pessoa_id);
-    window.location = "pessoaProfile.html";
+    if(pessoa.admin_id != null){
+      sessionStorage.setItem("AdminId", JSON.stringify(pessoa.admin_id));
+      window.location = "adminProfile.html";
+
+    }
+    else if(pessoa.admin_id == null){
+      sessionStorage.setItem("PessoaId", JSON.stringify(pessoa.pessoa_id));
+      window.location = "pessoaProfile.html";
+    }
   } catch (err) {
     document.getElementById("msg").innerText = err.responseJSON.msg;
   }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> main
