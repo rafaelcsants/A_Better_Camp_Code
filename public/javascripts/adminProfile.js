@@ -74,11 +74,6 @@ else{
             method: "get",
             dataType: "json"
         })
-<<<<<<< HEAD
-        let html = `<section>   
-        <h3>${pessoa.pessoa_nome}</h3>
-    </section>`;
-=======
         let dtnasc = new Date(pessoa.pessoa_dtnasc).toLocaleDateString("pt-PT");
         let html =`<section>
         <h3>Nome: ${pessoa.pessoa_nome}</h3>
@@ -88,7 +83,6 @@ else{
         <h4>Telefone: ${pessoa.pessoa_tlm}</h4>
         </section>`;
 
->>>>>>> main
         document.getElementById("perfil").innerHTML = html;
     } catch (err) {
         console.log(err);
@@ -102,8 +96,6 @@ function toPedidosMonitor() {
 function toGerirMonitor() {
     window.location = "gerirMonitor.html"
 }
-<<<<<<< HEAD
-=======
 
 async function logout (){
     sessionStorage.removeItem("PessoaId");
@@ -111,4 +103,3 @@ async function logout (){
     sessionStorage.removeItem("monitorId");
     location.reload(true);
 }
->>>>>>> main

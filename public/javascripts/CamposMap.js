@@ -1,34 +1,130 @@
-import {GetCampos} from "./GetFunctions.js"
-var mymap;
-var monumetos = [];  
-var campoId;
+import { GetCampos } from "./GetFunctions.js";
+var latlong;
+var map;
+var PessoaId = sessionStorage.getItem("PessoaId");
+var AdminId = sessionStorage.getItem("AdminId");
+var monitor = sessionStorage.getItem("monitorId");
 
 window.onload = async function () {
+  let campos = await GetCampos();
 
-  let campos = await GetCampos()
-  mymap = L.map("mapid").setView([38.70710400620239, -9.14669945214935], 7);
+  L.mapquest.key = "8MkD4JpHn8zPE0rGBGyuloII1ec4Hnt0";
+  let html = ""
+  for (let campo of campos) {
+    html += `<h1>${campo.campo_nome}</h1>
+              <h4>${campo.campo_disc}</h4>
+    </section>`;
+  }  
 
-
-  L.tileLayer(
-    "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
-    {
-      attribution:
-        'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
-      id: "mapbox/streets-v11",
-      tileSize: 512,
-      zoomOffset: -1,
-      accessToken: "pk.eyJ1Ijoiam9hcGxheTM5MDEiLCJhIjoiY2t2NnV3YTFhMDY0NTJwbWd5bHdhZXNudyJ9.aw6z7vHILLBavx1LCxLnrw",
+    document.getElementById("campos").innerHTML = html;
+  
+    let html10 = `<ul class="navbar-nav ms-auto">
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/campos.html"
+            >CAMPOS</a
+        >
+    </li>
+    <ul class="navbar-nav ms-auto">
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/CamposMap.html"
+            >CAMPOS MAP</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/Contactos.html"
+            >CONTACTOS</a
+        >
+    </li>`
+    
+    if(PessoaId){
+        html10 += `
+        <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/pessoaProfile.html"
+            >PERFIL</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" onclick="logout()">LOGOUT
+    </li>`
     }
-  ).addTo(mymap);
+    else if (AdminId){
+        html10 += `
+        <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/adminProfile.html"
+            >PERFIL</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" href="/gerirMonitor.html"
+            >GERIR MONITORES</a
+        >
+    </li>
+    <li class="nav-item mx-3">
+        <a class="nav-link text-white" onclick="logout()">LOGOUT
+    </li>`
+    }
+    else{
+        html10 += `
+        </li>
+        <li class="nav-item mx-3">
+            <a class="nav-link text-white" href="/login.html"
+                >LOGIN</a
+            >
+        </li>
+        <li class="nav-item mx-3">
+            <a class="nav-link text-white" href="/register.html"
+                >REGISTAR</a
+            >
+        </li>
+    </ul>`
+    }
+    
+        document.getElementById("navbarNav").innerHTML = html10;
 
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      latlong = [position.coords.latitude, position.coords.longitude];
 
-  for(let campo of campos){
-    if (campo.campo_lat){
-      var marker = L.marker([campo.campo_lat , campo.campo_long]).addTo(mymap);
-      monumetos.push({campo: campo, marker: marker});
-      campo.marker = marker;
-      }
+      map = L.mapquest.map("map", {
+        center: latlong,
+        layers: L.mapquest.tileLayer("map"),
+        zoom: 10,
+      });
+
+      // obterDirecoes(38.79770117227494, -9.432511769793297);
+
+      for (let campo of campos) {
+        
+        console.log(campo.campo_lat,campo.campo_long)
+        L.marker([campo.campo_lat, campo.campo_long], {
+          icon: L.mapquest.icons.marker({
+            primaryColor: "#22407F",
+            secondaryColor: "#3B5998",
+            shadow: true,
+            size: "md",
+            symbol: "C",
+          }),
+        })
+          .bindPopup(popUp)
+          .addTo(map);
+      } 
+    });
+  } else {
+    alert("Geolocation not supported");
   }
-
 };
+
+function popUp(layer) {
+  let btn = document.createElement("button");
+  btn.innerHTML = "Direcoes";
+  btn.onclick = function (){
+    L.mapquest
+      .directions()
+      .route({
+        start: latlong,
+        end: layer._latlng,
+      })
+  }
+  
+    return btn
+}

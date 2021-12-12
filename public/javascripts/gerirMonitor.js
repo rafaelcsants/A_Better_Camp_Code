@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 var PessoaId = sessionStorage.getItem("PessoaId");
 var AdminId = sessionStorage.getItem("AdminId");
 var monitor = sessionStorage.getItem("monitorId");
 
->>>>>>> main
 window.onload = async function () {
   try {
     let campos = await $.ajax({
@@ -25,8 +22,6 @@ window.onload = async function () {
       dataType: "json",
     });
 
-<<<<<<< HEAD
-=======
     let html10 = `<ul class="navbar-nav ms-auto">
     <li class="nav-item mx-3">
         <a class="nav-link text-white" href="/campos.html"
@@ -90,7 +85,6 @@ window.onload = async function () {
     
       document.getElementById("navbarNav").innerHTML = html10;
 
->>>>>>> main
     let html = "";
     let html1 = "";
     let html2 = "";
@@ -118,8 +112,6 @@ window.onload = async function () {
   }
 };
 
-<<<<<<< HEAD
-=======
 async function logout (){
   sessionStorage.removeItem("PessoaId");
   sessionStorage.removeItem("AdminId");
@@ -127,7 +119,6 @@ async function logout (){
   location.reload(true);
 }
 
->>>>>>> main
 async function submeter(semana, monitor, campo) {
   try {
     let obj = {
@@ -149,8 +140,5 @@ async function submeter(semana, monitor, campo) {
     console.log(err);
   }
 }
-<<<<<<< HEAD
-=======
 
 
->>>>>>> main
