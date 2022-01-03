@@ -95,7 +95,6 @@ window.onload = async function () {
 
       for (let campo of campos) {
         
-        console.log(campo.campo_lat,campo.campo_long)
         L.marker([campo.campo_lat, campo.campo_long], {
           icon: L.mapquest.icons.marker({
             primaryColor: "#22407F",
@@ -115,6 +114,7 @@ window.onload = async function () {
 };
 
 function popUp(layer) {
+  console.log(layer);
   let btn = document.createElement("button");
   btn.innerHTML = "Direcoes";
   btn.onclick = function (){

@@ -1,0 +1,13 @@
+body{
+    background-color: #EFE9E4;
+  }
+
+  .bg-success {
+    background-color: rgb(12,102,48)!important;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: rgb(12,102,48);
+    border-color: rgb(12,102,48);
+}

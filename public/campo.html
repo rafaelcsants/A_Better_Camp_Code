@@ -12,10 +12,11 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
         />
-        <link href="/stylesheets/styles.css" rel="stylesheet" />
+        <link href="/stylesheets/campo.css" rel="stylesheet" />
         <link rel="icon" type="images/png" href="images/icon.svg" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="/javascripts/campo.js"></script>
+        <script  src="/javascripts/logout.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -50,19 +51,27 @@
             </div>
         </div>
       </nav>
-    <header id = "nome"></header>
-    <main id="ativs">
-    </main>
-    <select name="semana" id="semana"></select>
-    <section id="campo"></section>
+      <div class="container">
+          <div id = "nome"class="py-4"></div>
+          <main id="ativs"></main>
+    
+          <div class="semana-div">
+            <p>Semana:</p>
+            <select name="semana" id="semana" class="form-select form-select-sm"></select>
+            <section id="campo" class="py-2"></section>
+          </div>
+    
+    
+    
         <p id="msg"></p>
+    </div>
         <footer class="footer bg-success">
             <div class="container py-3">
                 <div class="row">
                     <div class="col-6">
                         <div class="text-center p-3 text-white">
                             Contact us by email
-                            <a href="mailto:admin@ensino.pt">admin@ensino.pt</a>
+                            <a href="mailto:admin@bettercamp.pt">admin@bettercamp.pt</a>
                             or telephone
                             <a href="tell:2112312312">2112312312</a>.
                         </div>

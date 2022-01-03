@@ -3,6 +3,7 @@ var PessoaId;
 var PessoaId = sessionStorage.getItem("PessoaId");
 var AdminId = sessionStorage.getItem("AdminId");
 var monitor = sessionStorage.getItem("monitorId");
+// import {logout} from "./logout.js"
 
 window.onload = async function() {
     try {
@@ -97,10 +98,10 @@ window.onload = async function() {
         document.getElementById("semana").innerHTML= html;
 
         html1 += `<section>
-        <p><input type="button" onclick="reservarCampo()" value="Inscrever"></p></section>`;
+        <p><input type="button" onclick="reservarCampo()" class="btn btn-success" value="Inscrever"></p></section>`;
 }
     else{
-        html1 += `<section> <p><input type="button" onclick="toLogin()" value="Inscrever"></p></section>`;
+        html1 += `<section> <p><input type="button" class="btn btn-success" onclick="toLogin()" value="Inscrever"></p></section>`;
     }
 
         document.getElementById("campo").innerHTML= html1;
@@ -114,9 +115,9 @@ window.onload = async function() {
         });
         let html2="";
         for (let ativ of ativs)
-            html2 += `<section>
-                <h2>${ativ.ativ_nome}</h2>
-                <h3>${ativ.ativ_disc}</h3>
+            html2 += `<section class="py-3">
+                <h2 class="text-uppercase">${ativ.ativ_nome}</h2>
+                <h5 class="px-4">- ${ativ.ativ_disc}</h3>
                 </section>`;
 
         document.getElementById("ativs").innerHTML =  html2;
@@ -154,6 +155,5 @@ async function reservarCampo(campoId, PessoaId){
     document.getElementById("msg").innerText = err.responseJSON.msg;
   }
 };
-
 
 

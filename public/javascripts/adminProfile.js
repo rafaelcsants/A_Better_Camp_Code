@@ -101,9 +101,4 @@ function toGerirMonitor() {
     window.location = "gerirMonitor.html";
 }
 
-async function logout (){
-    sessionStorage.removeItem("PessoaId");
-    sessionStorage.removeItem("AdminId");
-    sessionStorage.removeItem("monitorId");
-    window.location = "index.html";
-}
+

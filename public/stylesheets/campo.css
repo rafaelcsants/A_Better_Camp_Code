@@ -1,0 +1,32 @@
+.semana-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+} 
+
+.list-group-item:hover {
+    color: rgb(12,102,48);
+    cursor: pointer;
+}
+.bg-success {
+    background-color: rgb(12,102,48)!important;
+}
+
+body{
+    background-color: #EFE9E4;
+  }
+
+.list-group-item {
+    background-color: #EFE9E4;
+}
+
+.form-select {
+    background-color: #EFE9E4
+}

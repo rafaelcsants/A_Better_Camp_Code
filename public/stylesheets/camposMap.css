@@ -1,12 +1,22 @@
 #map {
     position: absolute;
     top: 79px;
-    bottom: 0;
-    height: 100%;
+    bottom: 88px;
     width: 50%;
     right: 0vh;
   }
 
+    .footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+} 
+
+  
   .bg-success {
     background-color: rgb(12,102,48)!important;
+}
+
+body{
+  background-color: #EFE9E4;
 }

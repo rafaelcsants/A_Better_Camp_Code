@@ -24,4 +24,3 @@ async function login() {
     document.getElementById("msg").innerText = err.responseJSON.msg;
   }
 }
-
