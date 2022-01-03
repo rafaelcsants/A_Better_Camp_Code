@@ -9,3 +9,11 @@ a {
 a:hover {
     color:#139246;
 }
+
+body{
+    background-color: #EFE9E4;
+  }
+
+.list-group-item{
+    background-color: #EFE9E4;
+  }
